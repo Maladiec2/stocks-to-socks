@@ -1,6 +1,6 @@
 # Currency converter
 
-Currency converter app I made for job application.
+Currency converter app is Internship - Application Developer - technical task
 
 ## Setup
 
