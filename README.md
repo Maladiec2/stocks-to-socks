@@ -27,6 +27,8 @@ Choose currencies you want to convert from/to.
 
 Type in amount.
 
+With *Postman* or any API testing tool you can **GET** user activity log using *http://localhost:5000/userLogs*
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
