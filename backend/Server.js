@@ -8,6 +8,7 @@ const app = express();
 const port = process.env.port || 5000;
 
 app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
@@ -20,9 +21,11 @@ connection.once('open', () => {
 
 const currenciesRouter = require('./routes/currencies');
 const userLogsRouter = require('./routes/userLogs');
+const userRouter = require('./routes/users');
 
 app.use('/currencies', currenciesRouter);
 app.use('/userLogs', userLogsRouter);
+app.use('/users', userRouter);
 
 app.listen(port, () => {
     console.log(`server running on port: ${port}`);
