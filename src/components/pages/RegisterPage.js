@@ -71,15 +71,15 @@ export class RegisterPage extends Component {
                 </label>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        <input placeholder="Firstame" name="firstName" type="text" value={this.state.firstName} onChange={this.updateInput} />
+                        <input placeholder="Firstame" name="firstName" type="text" value={this.state.firstName} onChange={this.updateInput} required />
                     </label>
                     <br />
                     <label>
-                        <input placeholder="Lastname" name="lastName" type="text" value={this.state.lastName} onChange={this.updateInput} />
+                        <input placeholder="Lastname" name="lastName" type="text" value={this.state.lastName} onChange={this.updateInput} required />
                     </label>
                     <br />
                     <label>
-                        <input placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.updateInput} />
+                        <input placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.updateInput} required />
                     </label>
                     <br />
                     <input type="submit" value="Submit" />
