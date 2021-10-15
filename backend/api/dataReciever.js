@@ -31,7 +31,7 @@ function getData() {
                         });
                 }
             }
-            console.log('Database Is Up To Date')
+            //console.log('Database Is Up To Date')
         })
 }
 getData();
