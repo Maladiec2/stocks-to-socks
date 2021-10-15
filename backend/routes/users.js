@@ -2,12 +2,12 @@ const router = require('express').Router();
 const axios = require('axios');
 let User = require('../models/user.model');
 
-router.route('/auth').post((req, res) => {
-    User.find()
-        .then(users => {
-            console.log(users)
-        })
-});
+// router.route('/auth').post((req, res) => {
+//     User.find()
+//         .then(users => {
+//             console.log(users)
+//         })
+// });
 
 router.route('/add').post((req, res) => {
     const Id = req.body.id;
