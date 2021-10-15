@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import HomePage from './HomePage';
+import { BrowserRouter, Route, Link, Router } from "react-router-dom";
+
 
 export class LoginPage extends Component {
     state = {
@@ -42,6 +45,7 @@ export class LoginPage extends Component {
             Axios.post('http://localhost:5000/users/auth', this.state.user)
             .then(res => {
                 console.log(res);
+                // jovar redirect here
             })
             .catch(err => {
                 console.log(err);
