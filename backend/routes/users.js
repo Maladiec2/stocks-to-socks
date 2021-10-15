@@ -10,6 +10,7 @@ router.route('/auth').post((req, res) => {
             users.forEach(user => {
                 if (user.Id === id) {
                     if (user.Pass === pass) {
+                        console.log('logged in');
                         // redirect to home page --Jovar
                     }
                 }
@@ -28,7 +29,7 @@ router.route('/add').post((req, res) => {
 
     newUser.save()
         .then(() => res.json('User added!'))
-        .catch(err => res.status(400).json(' fucking  bad  Error: ' + err));
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;

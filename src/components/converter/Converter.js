@@ -102,7 +102,7 @@ class Converter extends Component {
     sendLog() {
         Axios.post('http://localhost:5000/userLogs/add', this.state.res)
             .then(res => {
-                console.log(res + ' event added')
+                console.log(res + ' log added')
             })
             .catch(err => {
                 console.log(err);

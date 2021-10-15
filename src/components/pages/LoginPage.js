@@ -41,7 +41,7 @@ export class LoginPage extends Component {
         setTimeout(() => {
             Axios.post('http://localhost:5000/users/auth', this.state.user)
             .then(res => {
-                console.log(res)
+                console.log(res);
             })
             .catch(err => {
                 console.log(err);

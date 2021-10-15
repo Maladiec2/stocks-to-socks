@@ -44,7 +44,7 @@ export class RegisterPage extends Component {
                     console.log(err);
                 })
         }, 10);
-        // redirect
+        // redirect to login
     }
 
     updateInput(event) {
