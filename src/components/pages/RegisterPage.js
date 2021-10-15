@@ -38,13 +38,12 @@ export class RegisterPage extends Component {
         setTimeout(() => {
             Axios.post('http://localhost:5000/users/add', this.state)
                 .then(res => {
-                    console.log(res);
+                    window.location.assign('/login');
                 })
                 .catch(err => {
                     console.log(err);
                 })
         }, 10);
-        // redirect to login
     }
 
     updateInput(event) {

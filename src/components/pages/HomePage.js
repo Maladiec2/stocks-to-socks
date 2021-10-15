@@ -5,11 +5,23 @@ export class HomePage extends Component {
     render() {
         return (
             <div>
-                <h1>Labas</h1>
+                <div style={cnvStyle}>
+                    <h1>Labas</h1>
+                </div>
                 <Converter />
             </div>
         )
     }
+}
+
+const cnvStyle = {
+    borderRadius: '5px',
+    border: '2px solid #ccc',
+
+    backgroundColor: '#f4f4f4',
+
+    textAlign: "center",
+    paddingBottom: '30px'
 }
 
 export default HomePage

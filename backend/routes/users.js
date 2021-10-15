@@ -10,7 +10,7 @@ router.route('/auth').post((req, res) => {
             users.forEach(user => {
                 if (user.Id === id) {
                     if (user.Pass === pass) {
-                        res.json('User Authenticated!');
+                        res.json('User authenticated!')
                     }
                 }
             });

@@ -39,8 +39,7 @@ export class LoginPage extends Component {
         setTimeout(() => {
             Axios.post('http://localhost:5000/users/auth', this.state.user)
                 .then(res => {
-                    console.log(res);
-                    // jovar redirect here
+                    window.location.assign('/home');
                 })
                 .catch(err => {
                     console.log(err);
