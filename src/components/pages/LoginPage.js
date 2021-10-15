@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, useCallback } from 'react'
 import Axios from 'axios'
+import HomePage from './HomePage';
+
 
 export class LoginPage extends Component {
-    state = {
-        inputId: '',
-        inputPass: '',
-    }
 
     constructor(props) {
         super(props);
@@ -22,7 +20,7 @@ export class LoginPage extends Component {
     }
 
     componentDidMount() {
-
+        
     }
 
     userObj() {
@@ -40,12 +38,13 @@ export class LoginPage extends Component {
         this.userObj();
         setTimeout(() => {
             Axios.post('http://localhost:5000/users/auth', this.state.user)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.log(err);
-            })
+                .then(res => {
+                    console.log(res);
+                    // jovar redirect here
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         }, 10);
     }
 

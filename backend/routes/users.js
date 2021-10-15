@@ -12,10 +12,12 @@ router.route('/auth').post((req, res) => {
                     if (user.Pass === pass) {
                         console.log('logged in')
                         // redirect to home page --Jovar
+                        res.json('User Authenticated!');
                     }
                 }
             });
         })
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
