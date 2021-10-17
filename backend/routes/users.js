@@ -2,6 +2,19 @@ const router = require('express').Router();
 const axios = require('axios');
 let User = require('../models/user.model');
 
+router.route('/user').post((req, res) => {
+    User.find()
+        .then(users => {
+            const userId = parseInt(req.body.id);
+            users.forEach(user => {
+                if (user.Id === userId) {
+                    res.json(user);
+                }
+            });
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/auth').post((req, res) => {
     const id = parseInt(req.body.id);
     const pass = req.body.pass;
