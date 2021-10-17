@@ -39,7 +39,8 @@ export class LoginPage extends Component {
         setTimeout(() => {
             Axios.post('http://localhost:5000/users/auth', this.state.user)
                 .then(res => {
-                    window.location.assign('/home');
+                    localStorage.setItem('auth', 'true');
+                    window.location.assign(`/home?id=${this.state.inputId}`);
                 })
                 .catch(err => {
                     console.log(err);

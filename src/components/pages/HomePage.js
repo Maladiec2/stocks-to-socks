@@ -2,6 +2,20 @@ import React, { Component } from 'react'
 import Converter from '../converter/Converter'
 
 export class HomePage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+    }
+
+    componentDidMount() {
+        if (localStorage.getItem('auth') !== 'true') {
+            window.location.assign('/');
+        }
+    }
+
     render() {
         return (
             <div>
@@ -23,5 +37,7 @@ const cnvStyle = {
     textAlign: "center",
     paddingBottom: '30px'
 }
+
+
 
 export default HomePage
