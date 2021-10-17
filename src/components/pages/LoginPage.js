@@ -67,11 +67,11 @@ export class LoginPage extends Component {
                 <h3>Login</h3>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        <input placeholder="Login id" name="id" type="text" value={this.state.inputId} onChange={this.updateInput} />
+                        <input placeholder="Login id" name="id" type="text" value={this.state.inputId} onChange={this.updateInput} required />
                     </label>
                     <br />
                     <label>
-                        <input placeholder="Password" name="password" type="password" value={this.state.inputPass} onChange={this.updateInput} />
+                        <input placeholder="Password" name="password" type="password" value={this.state.inputPass} onChange={this.updateInput} required />
                     </label>
                     <br />
                     <input type="submit" value="Login" />
