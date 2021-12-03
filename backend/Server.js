@@ -22,10 +22,12 @@ connection.once('open', () => {
 const currenciesRouter = require('./routes/currencies');
 const userLogsRouter = require('./routes/userLogs');
 const userRouter = require('./routes/users');
+const transactionRouter = require('./routes/transactions');
 
 app.use('/currencies', currenciesRouter);
 app.use('/userLogs', userLogsRouter);
 app.use('/users', userRouter);
+app.use('/transactions', transactionRouter);
 
 app.listen(port, () => {
     console.log(`server running on port: ${port}`);

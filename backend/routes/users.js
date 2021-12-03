@@ -8,7 +8,7 @@ router.route('/user').post((req, res) => {
             const userId = parseInt(req.body.id);
             users.forEach(user => {
                 if (user.Id === userId) {
-                    res.json(user);
+                   res.json(user);
                 }
             });
         })
