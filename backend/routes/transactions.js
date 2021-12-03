@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const axios = require('axios');
 let User = require('../models/user.model');
+let Transaction = require('../models/transaction.model');
 
 router.route('/send').post((req, res) => {
     //sender
@@ -20,34 +21,33 @@ router.route('/send').post((req, res) => {
         .catch(err => console.log(err));
 });
 
-// router.route('/auth').post((req, res) => {
-//     const id = parseInt(req.body.id);
-//     const pass = req.body.pass;
-//     User.find()
-//         .then(users => {
-//             users.forEach(user => {
-//                 if (user.Id === id) {
-//                     if (user.Pass === pass) {
-//                         res.json('User authenticated!')
-//                     }
-//                 }
-//             });
-//         })
-//         .catch(err => res.status(400).json('Error: ' + err));
-// });
+router.route('/log').post((req, res) => {
+    const Sender = req.body.data.Beneficiary;
+    const Beneficiary = req.body.beneficiary;
+    const AccountNumber = parseInt(req.body.accountNumber);
+    const Amount = parseInt(req.body.amount);
 
-// router.route('/add').post((req, res) => {
-//     const Id = req.body.id;
-//     const Pass = req.body.password;
-//     const Beneficiary = req.body.beneficiary;
-//     const AccountNumber = req.body.accountNumber;
-//     const Balance = 0;
+    const newTransaction = new Transaction({ Sender, Beneficiary, AccountNumber, Amount });
 
-//     const newUser = new User({ Id, Pass, Beneficiary, AccountNumber, Balance });
+    newTransaction.save()
+        .then(() => res.json('Transaction added!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
 
-//     newUser.save()
-//         .then(() => res.json('User added!'))
-//         .catch(err => res.status(400).json('Error: ' + err));
-// });
+router.route('/get').post((req, res) => {
+    Transaction.find()
+        .then(transactions => {
+            res.json(transactions)
+            // var list;
+            // transactions.forEach(transaction => {
+            //     if (req.body.userData.Beneficiary == transaction.Sender) {
+            //         list.push(transaction);
+            //         console.log(list)
+            //     }
+            // });
+            // res.json(list);
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
 
 module.exports = router;

@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const transactionSchema = new Schema({
     Sender: {
-        type: Number,
+        type: String,
         required: true,
     },
     Beneficiary: {
@@ -23,6 +23,6 @@ const userSchema = new Schema({
     timestamps: true,
 });
 
-const User = mongoose.model('User', userSchema);
+const Transaction = mongoose.model('Transaction', transactionSchema);
 
-module.exports = User;
+module.exports = Transaction;

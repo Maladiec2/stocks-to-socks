@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React, { Component } from 'react'
 import Converter from '../converter/Converter'
 import Send from '../transaction/Send';
+import History from '../transaction/History';
 
 export class HomePage extends Component {
 
@@ -30,17 +31,17 @@ export class HomePage extends Component {
                             data: res.data,
                         });
                     });
-            }, 100);
+            }, 50);
             setTimeout(() => {
                 this.setState({
                     beneficiary: this.state.data.Beneficiary,
                     balance: this.state.data.Balance,
                 });
-            }, 200);
+            }, 300);
         }
         setTimeout(() => {
             this.cardNumber();
-        }, 250);
+        }, 300);
     }
 
     cardNumber() {
@@ -61,6 +62,7 @@ export class HomePage extends Component {
                     <h3>{this.state.balance} EUR</h3>
                 </div>
                 <Send />
+                <History />
                 <Converter />
             </div>
         )

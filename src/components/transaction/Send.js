@@ -48,6 +48,13 @@ export class Send extends Component {
                     console.log(err);
                 })
         }, 10);
+        Axios.post('http://localhost:5000/transactions/log', this.state)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     updateInput(event) {
