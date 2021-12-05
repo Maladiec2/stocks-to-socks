@@ -92,7 +92,7 @@ export class Send extends Component {
                         <input placeholder="Amount" name="amount" type="number" value={this.state.amount} onChange={this.updateInput} required />
                     </label>
                     <br />
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Send" />
                 </form>
             </div>
         );
@@ -102,11 +102,10 @@ export class Send extends Component {
 const cnvStyle = {
     borderRadius: '5px',
     border: '2px solid #ccc',
-
     backgroundColor: '#f4f4f4',
-
     textAlign: "center",
-    paddingBottom: '30px'
+    padding: '30px 0px',
+    margin: '0px'
 }
 
 export default Send

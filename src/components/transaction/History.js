@@ -8,7 +8,7 @@ export class History extends Component {
         this.state = {
             id: '',
             userData: {},
-            history : {},
+            history: [],
         }
     }
 
@@ -17,33 +17,54 @@ export class History extends Component {
         const id = params.get('id');
         this.setState({ id: id });
         setTimeout(() => {
-            Axios.post('http://localhost:5000/users/user', this.state)
+        Axios.post('http://localhost:5000/users/user', this.state)
+            .then(res => {
+                this.setState({
+                    userData: res.data,
+                });
+            });
+        }, 100);
+        setTimeout(() => {
+            Axios.post('http://localhost:5000/transactions/get', this.state)
                 .then(res => {
+                    const list = res.data.filter(item => item.Sender === this.state.userData.Beneficiary);
                     this.setState({
-                        userData: res.data,
+                        history: list,
                     });
                 });
-        }, 100);
-        // setTimeout(() => {
-        //     Axios.post('http://localhost:5000/transactions/get', this.state)
-        //         .then(res => {
-        //             console.log(res.data)
-        //             this.setState({
-        //                 history: res.data,
-        //             });
-        //         });
-        // }, 200);
-        // setTimeout(() => {
-        //     console.log(this.state.history)
-        // }, 400);
+        }, 200);
     }
     render() {
         return (
-            <div>
-                
+            <div style={cnvStyle} >
+                <ul style={ulStyle}>
+                    {this.state.history.map(item => (
+                        <li style={liStyle} key={item._id}><b>{item.Sender} sent {item.Amount} EUR to {item.Beneficiary}</b></li>
+                    ))}
+                </ul>
             </div>
         )
     }
+}
+
+const cnvStyle = {
+    borderRadius: '5px',
+    border: '2px solid #ccc',
+    backgroundColor: '#f4f4f4',
+    textAlign: "center",
+    paddingBottom: '30px'
+}
+
+const ulStyle = {
+    listStyleType: 'none',
+    padding: 0,
+    margin: 0
+}
+
+const liStyle = {
+    textAlign: "left",
+    borderRadius: '5px',
+    border: '2px solid #ccc',
 }
 
 export default History

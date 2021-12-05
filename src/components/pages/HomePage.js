@@ -41,7 +41,7 @@ export class HomePage extends Component {
         }
         setTimeout(() => {
             this.cardNumber();
-        }, 300);
+        }, 400);
     }
 
     cardNumber() {
@@ -76,7 +76,8 @@ const cnvStyle = {
     backgroundColor: '#f4f4f4',
 
     textAlign: "left",
-    padding: '0px 30px'
+    padding: '0px 50px',
+    margin: '0'
 }
 
 
