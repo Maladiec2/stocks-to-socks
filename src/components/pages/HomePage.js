@@ -52,6 +52,10 @@ export class HomePage extends Component {
         this.setState({ accountNumber: first +' '+second+ ' '+third+' '+last })
     }
 
+    Logout() {
+        window.location.assign(`/`);
+    }
+
     render() {
         return (
             <div>
@@ -60,6 +64,7 @@ export class HomePage extends Component {
                     <h5>{this.state.beneficiary}</h5>
                     <h5>{this.state.accountNumber}</h5>
                     <h3>{this.state.balance} EUR</h3>
+                    <button onClick={this.Logout}>Logout</button>
                 </div>
                 <Send />
                 <History />

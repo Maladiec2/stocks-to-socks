@@ -61,6 +61,10 @@ export class LoginPage extends Component {
         }
     }
 
+    goToRegisterPage() {
+        window.location.assign(`/register`);
+    }
+
     render() {
         return (
             <div style={cnvStyle} >
@@ -76,6 +80,10 @@ export class LoginPage extends Component {
                     <br />
                     <input type="submit" value="Login" />
                 </form>
+                <br />
+                <h5>do not have an account? click here to create account</h5>
+                <button onClick={this.goToRegisterPage}>Register</button>
+
             </div>
         )
     }

@@ -82,7 +82,7 @@ export class RegisterPage extends Component {
                         <input placeholder="Password" name="password" type="password" value={this.state.password} onChange={this.updateInput} required />
                     </label>
                     <br />
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Create account" />
                 </form>
             </div>
         );
